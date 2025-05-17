@@ -7,6 +7,7 @@ const sideNav = document.querySelector("#sideNav");
 const leftPart = document.querySelector(".left-part");
 const catLink = document.querySelector("#cat-link");
 const subBtn = document.querySelector("#submit-btn");
+const contactLink = document.querySelector("#contact-link");
 
 // const areaLink = document.querySelector("#area-link");
 // const ingLink = document.querySelector("#ing-link");
@@ -16,6 +17,101 @@ menuToggle.addEventListener("click", () => {
   xMark.classList.toggle("d-none");
   sideNav.classList.toggle("appear");
   leftPart.classList.toggle("show");
+});
+
+contactLink.addEventListener("click", () => {
+  closeNav();
+  inputFields.innerHTML = ``;
+  row.innerHTML = ` <form
+          id="form"
+          onchange="enableBtn()"
+          class="d-flex flex-column justify-content-center vh-80"
+        >
+          <div class="row">
+            <div class="col-12 col-md-6 m-auto">
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                placeholder="Enter Your Name"
+                oninput="validateName()"
+              />
+              <p id="nameValid" class="text-danger m-0 pt-1 d-none">
+                Special characters and numbers not allowed
+              </p>
+            </div>
+            <div class="col-12 col-md-6 m-auto">
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Enter Your Email"
+                oninput="validateEmail()"
+              />
+              <p id="emailValid" class="text-danger m-0 pt-1 d-none">
+                Enter Valid E-Mail "example@yyy.fff"
+              </p>
+            </div>
+            <div class="col-12 col-md-6 m-auto pt-3">
+              <input
+                type="text"
+                id="phone"
+                class="form-control"
+                placeholder="Enter Your Phone"
+                oninput="validatePhone()"
+              />
+              <p id="phoneValid" class="text-danger m-0 pt-1 d-none">
+                Enter Valid Phone Number
+              </p>
+            </div>
+            <div class="col-12 col-md-6 m-auto pt-3">
+              <input
+                type="number"
+                id="age"
+                class="form-control"
+                placeholder="Enter Your Age"
+                oninput="validateAge()"
+              />
+              <p id="ageValid" class="text-danger m-0 pt-1 d-none">
+                Enter Valid Age " 10 years old to 90 years old"
+              </p>
+            </div>
+            <div class="col-12 col-md-6 m-auto pt-3">
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                placeholder="Enter Your Password"
+                oninput="validatePassword()"
+              />
+              <p id="passwordValid" class="text-danger m-0 pt-1 d-none">
+                Not Valid Pass. "minimum 8 characters, at least letter & number"
+              </p>
+            </div>
+            <div class="col-12 col-md-6 m-auto pt-3">
+              <input
+                type="password"
+                id="rePassword"
+                class="form-control"
+                placeholder="Repassword"
+                oninput="validateRePassword()"
+              />
+              <p id="rePasswordValid" class="text-danger m-0 pt-1 d-none">
+                Password Not Match
+              </p>
+            </div>
+          </div>
+          <div class="w-5 mx-auto pt-3 d-flex justify-content-center">
+            <button
+              id="submit-btn"
+              type="button"
+              class="btn btn-danger"
+              disabled
+            >
+              Submit
+            </button>
+          </div>
+        </form>`;
 });
 
 function closeNav() {
@@ -406,7 +502,7 @@ async function getStartMeals() {
   // console.log(meals);
   displayMeals(meals.slice(0, 20));
 }
-// getStartMeals();
+getStartMeals();
 
 // contact page Validation
 function validateName() {
