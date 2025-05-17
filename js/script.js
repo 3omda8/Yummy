@@ -23,8 +23,7 @@ contactLink.addEventListener("click", () => {
   closeNav();
   inputFields.innerHTML = ``;
   row.innerHTML = ` <form
-          id="form"
-          onchange="enableBtn()"
+          onfocus="validateForm()"
           class="d-flex flex-column justify-content-center vh-80"
         >
           <div class="row">
@@ -46,7 +45,7 @@ contactLink.addEventListener("click", () => {
                 id="email"
                 class="form-control"
                 placeholder="Enter Your Email"
-                oninput="validateEmail()"
+                oninput="validateEmail(); check()"
               />
               <p id="emailValid" class="text-danger m-0 pt-1 d-none">
                 Enter Valid E-Mail "example@yyy.fff"
@@ -555,7 +554,7 @@ function validatePhone() {
 function validateAge() {
   const age = document.getElementById("age");
   const validMsg = document.getElementById("ageValid");
-  const regex = /^[1-8]{1}[0-9]{1}|(90)$/;
+  const regex = /^(10|[1-8][0-9]|90)$/;
   if (regex.test(age.value)) {
     age.classList.remove("is-invalid");
     age.classList.add("is-valid");
@@ -598,6 +597,7 @@ function validateRePassword() {
     return false;
   }
 }
+
 function validateForm() {
   if (
     validateName() &&
@@ -613,10 +613,29 @@ function validateForm() {
   }
 }
 
-function enableBtn() {
+function check() {
   if (validateForm()) {
     subBtn.removeAttribute("disabled");
   } else {
     subBtn.setAttribute("disabled", true);
   }
 }
+// function validateForm() {
+//   const isNameValid = validateName();
+//   const isEmailValid = validateEmail();
+//   const isPhoneValid = validatePhone();
+//   const isAgeValid = validateAge();
+//   const isPasswordValid = validatePassword();
+//   const isRePasswordValid = validateRePassword();
+
+//   const allValid =
+//     isNameValid &&
+//     isEmailValid &&
+//     isPhoneValid &&
+//     isAgeValid &&
+//     isPasswordValid &&
+//     isRePasswordValid;
+
+//   // const submitBtn = document.getElementById("submit-btn");
+//   subBtn.disabled = !allValid;
+// }
