@@ -6,7 +6,6 @@ const menuToggle = document.querySelector("#menu-toggle");
 const sideNav = document.querySelector("#sideNav");
 const leftPart = document.querySelector(".left-part");
 const catLink = document.querySelector("#cat-link");
-const subBtn = document.querySelector("#submit-btn");
 const contactLink = document.querySelector("#contact-link");
 
 // const areaLink = document.querySelector("#area-link");
@@ -614,28 +613,14 @@ function validateForm() {
 }
 
 function check() {
+  const subBtn = document.querySelector("#submit-btn");
   if (validateForm()) {
     subBtn.removeAttribute("disabled");
   } else {
     subBtn.setAttribute("disabled", true);
   }
 }
-// function validateForm() {
-//   const isNameValid = validateName();
-//   const isEmailValid = validateEmail();
-//   const isPhoneValid = validatePhone();
-//   const isAgeValid = validateAge();
-//   const isPasswordValid = validatePassword();
-//   const isRePasswordValid = validateRePassword();
 
-//   const allValid =
-//     isNameValid &&
-//     isEmailValid &&
-//     isPhoneValid &&
-//     isAgeValid &&
-//     isPasswordValid &&
-//     isRePasswordValid;
-
-//   // const submitBtn = document.getElementById("submit-btn");
-//   subBtn.disabled = !allValid;
-// }
+setInterval(() => {
+  check();
+}, 500);
