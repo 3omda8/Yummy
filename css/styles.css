@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.logo {
+  width: 50px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* menu appear and disappear */
+.sideNav {
+  /* right: calc(100% - 66px); */
+  left: -260px;
+  transition: 0.3s all;
+}
+
+.sideNav.appear {
+  left: 0;
+}
+
+/* animate li */
+
+/* Initial state (hidden) */
+.left-part ul li {
+  opacity: 0;
+  transform: translateY(140px);
+  transition: all 0.4s ease;
+}
+
+/* When menu is opened, apply this class to animate li elements */
+.left-part.show ul li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: Stagger effect */
+.left-part.show ul li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.left-part.show ul li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.left-part.show ul li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.left-part.show ul li:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.left-part.show ul li:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+/* End Navbar */
+
+.card .overlay {
+  background-color: #f9f6f6ca;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  transform: translateY(105%);
+  transition: 0.5s all;
+}
+.card:hover .overlay {
+  transform: translateY(0);
+}
+
+.ficons {
+  font-size: 4rem;
+}
+
+.vh-80 {
+  min-height: 80vh;
+}
+
+.w-5 {
+  width: 10%;
+}
