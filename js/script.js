@@ -38,7 +38,7 @@ contactLink.addEventListener("click", () => {
                 Special characters and numbers not allowed
               </p>
             </div>
-            <div class="col-12 col-md-6 m-auto">
+            <div class="col-12 col-md-6 m-auto pt-3 pt-md-0">
               <input
                 type="email"
                 id="email"
