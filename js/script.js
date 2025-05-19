@@ -22,7 +22,7 @@ contactLink.addEventListener("click", () => {
   closeNav();
   inputFields.innerHTML = ``;
   row.innerHTML = ` <form
-          onfocus="validateForm()"
+          onchange="check()"
           class="d-flex flex-column justify-content-center vh-80"
         >
           <div class="row">
@@ -620,7 +620,3 @@ function check() {
     subBtn.setAttribute("disabled", true);
   }
 }
-
-setInterval(() => {
-  check();
-}, 500);
